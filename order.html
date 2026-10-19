@@ -1,0 +1,9 @@
+{% extends "base.html" %}{% block content %}
+<section class="card"><h1>آرڈر کی تفصیل</h1><p>{{ number.country }} — {{ number.phone }}</p><h3>قیمت: PKR {{ "%.2f"|format(number.price) }}</h3>
+<p class="small">پیمنٹ کرنے سے پہلے ایڈمن سے JazzCash/Easypaisa کی درست تفصیلات حاصل کریں۔ یہ ڈیمو پیمنٹ خود وصول یا تصدیق نہیں کرتا۔</p>
+<form method="post" enctype="multipart/form-data">
+<label>آپ کا نام</label><input name="customer_name" required maxlength="100">
+<label>رابطہ (فون یا ای میل)</label><input name="customer_contact" required maxlength="150">
+<label>پیمنٹ کا طریقہ</label><select name="payment_method" required><option value="JazzCash">JazzCash</option><option value="Easypaisa">Easypaisa</option></select>
+<label>رسید (اختیاری، JPG/PNG/WEBP/PDF، زیادہ سے زیادہ 5 MB)</label><input type="file" name="receipt" accept=".jpg,.jpeg,.png,.webp,.pdf">
+<button type="submit">آرڈر جمع کریں</button></form></section>{% endblock %}
