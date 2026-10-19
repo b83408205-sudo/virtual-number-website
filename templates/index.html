@@ -1,0 +1,4 @@
+{% extends "base.html" %}{% block content %}
+<section class="card"><h1>SMS نمبرز</h1><p class="small">صرف مجاز اور قانونی استعمال کے لیے۔ آرڈر کی منظوری ایڈمن پیمنٹ چیک کرنے کے بعد کرے گا۔</p></section>
+<div class="grid">{% for n in numbers %}<section class="card"><h3>{{ n.country }}</h3><p>{{ n.phone }}</p><h2>PKR {{ "%.2f"|format(n.price) }}</h2><a class="btn" href="{{ url_for('order', number_id=n.id) }}">آرڈر کریں</a></section>{% else %}<section class="card">ابھی کوئی نمبر دستیاب نہیں۔</section>{% endfor %}</div>
+{% endblock %}
